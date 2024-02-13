@@ -1,5 +1,7 @@
 ﻿using ExportConfigurationBALM.APIs;
 using ExportConfigurationBALM.Entities;
+using ExportConfigurationBALM.Entities.ValueObjects;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ExportConfigurationBALM.Builders
@@ -38,11 +40,16 @@ namespace ExportConfigurationBALM.Builders
                     _DataNomenclatureRule = obj;
                 }
             }
+            if (_DataNomenclatureRule == null)
+            {
+                throw new Exception($"this rule {_id} is not existe");
+            }
         }
         private void BuilderDocumentType()
         {
             _docType = _builderDocTyp.BuilderBase()
-                                   .Build();
+                                     .BuilderWithScript()
+                                     .Build();
         }
         public BuilderNomenclatureRule BuilderBase()
         {
@@ -54,6 +61,10 @@ namespace ExportConfigurationBALM.Builders
             nomenclatureRule.Active = _DataNomenclatureRule["active"].Value<bool>();
             nomenclatureRule.Separator = _DataNomenclatureRule["separator"].Value<string>();
             nomenclatureRule.NullCaseVersion = _DataNomenclatureRule["nullCaseVersion"].Value<bool>();
+            return this;
+        }
+        public BuilderNomenclatureRule BuilderWithDocumentType()
+        {
             nomenclatureRule.DocumentType = _docType;
             return this;
         }

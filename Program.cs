@@ -1,3 +1,8 @@
+using ExportConfigurationBALM.Builders;
+using ExportConfigurationBALM.Builders.Interfaces;
+using ExportConfigurationBALM.Directors;
+using ExportConfigurationBALM.Directors.Interfaces;
+
 namespace ExportConfigurationBALM
 {
     public class Program
@@ -12,6 +17,8 @@ namespace ExportConfigurationBALM
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            //builder.Services.AddScoped<IBuilderdDocumentType, BuilderDocumentType>();
+            builder.Services.AddScoped<IDirectorDocumentType, DirectorDocumentType>();
 
             var app = builder.Build();
 

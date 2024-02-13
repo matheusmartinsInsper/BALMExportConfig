@@ -17,7 +17,6 @@ namespace ExportConfigurationBALM.Entities
         private string? _script;
 
         public int id { get { return _id; } set { _id = value; } }
-        public List<MetaDataType> dtTypeFields { get { return _dtTypeFields; } set { _dtTypeFields = value; } }
         public string dtType { get { return _dtType; } set { _dtType = value; } }
         public bool active { get { return _active; } set { _active = value; } }
         public int maxSpawn { get { return _maxSpawn; } set { _maxSpawn = value; } }
@@ -28,5 +27,6 @@ namespace ExportConfigurationBALM.Entities
             get { if (_scriptId == null) { return 0; } else { return _scriptId; } } 
             set { _scriptId = value; } }
         public string script { get { return _script; } set { _script = value; } }
+        public List<MetaDataType> dtTypeFields { get { return _dtTypeFields; } set { _dtTypeFields = value; } }
     }
 }

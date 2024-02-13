@@ -1,11 +1,12 @@
 ﻿using ExportConfigurationBALM.APIs;
+using ExportConfigurationBALM.Builders.Interfaces;
 using ExportConfigurationBALM.Entities;
 using ExportConfigurationBALM.Entities.ValueObjects;
 using Newtonsoft.Json.Linq;
 
 namespace ExportConfigurationBALM.Builders
 {
-    public class BuilderDocumentType
+    public class BuilderDocumentType: IBuilderdDocumentType
     {
         private JObject _Data;
         private List<JObject> _DataMetaDataField;
@@ -51,7 +52,7 @@ namespace ExportConfigurationBALM.Builders
             };
             return objectConvert;
         }
-        public BuilderDocumentType BuilderBase()
+        public IBuilderdDocumentType BuilderBase()
         {
             document.id = _Data["id"].Value<int>();
             document.dtType = _Data["dtType"].Value<string>();
@@ -63,7 +64,7 @@ namespace ExportConfigurationBALM.Builders
             document.dtTypeFields = fields;
             return this;
         }
-        public BuilderDocumentType BuilderWithScript()
+        public IBuilderdDocumentType BuilderWithScript()
         {
             document.scriptId = _Data["scriptId"].Value<int>();
             document.script = _Data["script"].Value<string>();

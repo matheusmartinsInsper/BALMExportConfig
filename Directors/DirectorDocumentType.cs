@@ -1,4 +1,5 @@
 ﻿using ExportConfigurationBALM.Builders;
+using ExportConfigurationBALM.Builders.Interfaces;
 using ExportConfigurationBALM.Directors.Interfaces;
 using ExportConfigurationBALM.Entities;
 
@@ -6,8 +7,8 @@ namespace ExportConfigurationBALM.Directors
 {
     public class DirectorDocumentType:IDirectorDocumentType
     {
-        private BuilderDocumentType _builder;
-        public DirectorDocumentType(BuilderDocumentType builder)
+        private IBuilderdDocumentType _builder;
+        public void AddBuilder(IBuilderdDocumentType builder)
         {
             _builder = builder;
         }

@@ -11,7 +11,7 @@ namespace ExportConfigurationBALM.Controllers
     public class NomenclatureRuleController : ControllerBase
     {
         [HttpGet("builderBase/{id}")]
-        public async Task<ActionResult<NomenclatureRule>> GetBaseDt([FromRoute] int id)
+        public async Task<ActionResult<NomenclatureRule>> GetBaseRule([FromRoute] int id)
         {
             NomenclatureRule nomenclatureRule;
             string token = Request.Query["token"].ToString();

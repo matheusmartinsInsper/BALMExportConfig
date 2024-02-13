@@ -15,5 +15,11 @@ namespace ExportConfigurationBALM.Directors
             return _builder.BuilderBase()
                            .Build ();
         }
+        public NomenclatureRule builderWithDt()
+        {
+            return _builder.BuilderBase()
+                           .BuilderWithDocumentType()
+                           .Build();
+        }
     }
 }
